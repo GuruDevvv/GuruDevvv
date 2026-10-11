@@ -20,22 +20,17 @@ Install: copy a skill's folder into `~/.claude/skills/<skill-name>/` and restart
 
 ## design-first
 
-<a href="https://github.com/GuruDevvv/design-first"><img src="assets/design-first.jpg" width="100%" alt="Design First. Six first screens. Pick one. Get a live page."></a>
+<a href="https://github.com/GuruDevvv/my-claude-skills/tree/main/mine/design-first"><img src="assets/design-first.jpg" width="100%" alt="Design First. Six first screens. Pick one. Get a live page."></a>
 
-A Claude Code plugin for people who are not designers: six different first screens for your topic, you pick one, and it grows into a live page for desktop and phone.
+A Claude Code skill for people who are not designers: six different first screens for your topic, you pick one, and it is built as a live page for desktop and phone.
 
 **Why it exists.** "Make it look good" is not a brief. Ask an agent for a page and you get the same clean modern layout every time. Choosing between six is easier than describing one.
 
-**What it is.** A skill, two Node scripts and a small local helper, with no packages to install. It searches stock photos, measures each one for a calm area where text stays readable, builds the screens around the photos, and opens every screen in a real browser to check contrast, overflow, missing fonts and broken images. The only thing it sends out is photo search words and your own Pixabay key, to pixabay.com.
+**What it is.** One of the skills in the collection above. An image model draws six first-screen mockups, you pick one or mix two, the text is taken off the chosen mockup and the page is built with live text over it; the phone gets its own mockup. Before you see the page, a script opens it in a real browser at three widths and checks sideways scroll, unreadable text, missing fonts and broken images. It needs Node 22+, Chrome or Edge, and an image generator such as the Codex CLI.
 
-<a href="https://github.com/GuruDevvv/design-first"><img src="https://img.shields.io/badge/Repository-FF4F1A?style=for-the-badge&logo=github&logoColor=white" alt="design-first on GitHub"></a>
+<a href="https://github.com/GuruDevvv/my-claude-skills/tree/main/mine/design-first"><img src="https://img.shields.io/badge/Skill-FF4F1A?style=for-the-badge&logo=github&logoColor=white" alt="design-first skill on GitHub"></a>
 
-Install:
-
-```bash
-git clone https://github.com/GuruDevvv/design-first.git
-claude --plugin-dir design-first
-```
+Install: copy `mine/design-first/` from the collection into `~/.claude/skills/design-first/` and restart Claude Code.
 
 ## emoji-palette-kit
 
@@ -59,9 +54,9 @@ python emoji_palette_kit.py init
 
 ## How the work is checked
 
-None of the three has an automated test suite of its own. What they have instead:
+None of these has an automated test suite of its own. What they have instead:
 
-- **design-first** checks its own output. The page checker ships with control pages: four broken on purpose and two clean, with the expected verdict for each, so a green result means something. Six screens took 21 minutes in the one run I measured. The phone step is newer and less tested than the desktop one.
+- **design-first** checks its own output. The page checker ships with control pages: four broken on purpose and two clean, with the expected verdict for each, so a green result means something. The switch to drawn mockups came out of seven blind rounds in September 2026: every screen I called a "wow" was drawn by an image model, none was written as HTML. The protocol is summarised inside the skill.
 - **my-claude-skills** ships the research two of its skills came out of, next to the skill. One good third-party skill is left out on purpose: its repository has no licence file, so redistributing it would not be legal.
 - **emoji-palette-kit** describes animated emoji from a still frame, so the meaning of the movement can be lost. Its README says so and asks you to check those by hand.
 
@@ -69,4 +64,4 @@ None of the three has an automated test suite of its own. What they have instead
 
 My part is the task, the decisions, and accepting or rejecting the result. The code and most of the text in these repositories are written by AI agents: Claude Code does the work, and Codex is the second opinion and draws the pictures on this page.
 
-The histories show it: as of 11 October 2026, 64 of the 72 public commits across the three repositories carry a `Co-Authored-By: Claude` trailer.
+The histories show it: as of 11 October 2026, 60 of the 68 public commits across the two repositories carry a `Co-Authored-By: Claude` trailer.
